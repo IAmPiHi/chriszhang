@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chris Zhang | Personal Dossier</title>
+  <meta name="description" content="Chris Zhang (張家銘) — Information Management student at National Yunlin University of Science and Technology and 1st-place winner of the National Skills Competition (Software Design). C / C++ / C#, Python, algorithms and AI.">
+  <meta property="og:title" content="Chris Zhang | Personal Dossier">
+  <meta property="og:description" content="C / C++ / C# · Python · Algorithms · AI">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#ece5d3">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%23d9b97c'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' text-anchor='middle' fill='%231f1d1a'%3ECZ%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Serif+TC:wght@400;600;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Special+Elite&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- 圖片載入失敗時：先換備用網址，再不行就換成紙本佔位框 -->
+  <script>
+    document.addEventListener('error', function (e) {
+      var img = e.target;
+      if (!img || img.tagName !== 'IMG') return;
+      var fb = img.getAttribute('data-fallback');
+      if (fb) { img.removeAttribute('data-fallback'); img.src = fb; return; }
+      var ph = document.createElement('div');
+      ph.className = 'ph';
+      ph.textContent = img.getAttribute('data-label') || 'IMAGE';
+      img.replaceWith(ph);
+    }, true);
+  </script>
+</head>
+<body>
+
+<!-- ============ 報頭 ============ -->
+<header class="mast" id="top">
+  <div class="wrap">
+    <div class="mast-meta">
+      <span>VOL. <span id="vol">2026</span></span>
+      <span id="today">YUNLIN, TAIWAN</span>
+      <span>No. 001</span>
+    </div>
+    <h1 class="mast-title">Chris Zhang</h1>
+    <p class="mast-sub">張　家　銘</p>
+    <p class="mast-motto">“Mathematics is the music of reason.”</p>
+  </div>
+</header>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo">C.Z.</a>
+    <a href="#profile">Profile</a>
+    <a href="#works">Works</a>
+    <a href="#reviews">Testimonials</a>
+    <a href="#posts">Posts</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ============ 個人介紹：人事檔案夾 ============ -->
+  <section id="profile" class="sec reveal">
+    <div class="folder">
+      <div class="folder-tab">PERSONNEL FILE</div>
+      <div class="sheet">
+        <div class="sheet-photo">
+          <span class="clip" aria-hidden="true"></span>
+          <!-- 大頭照：把照片放到 img/avatar.jpg；沒放時會先用 GitHub 頭像 -->
+          <img src="img/avatar.jpg" data-fallback="https://media.licdn.com/dms/image/v2/D5603AQHhPTRRWO9U3A/profile-displayphoto-crop_800_800/B56aGXAhiGKAAM-/0/1793534860010?e=1795046400&v=beta&t=La9eCOCwfsfarKEkzOwhgJsWrC6Tz1VSegzFHzDPTuI" data-label="PHOTO" alt="Portrait of Chris Zhang">
+          <p class="photo-cap">ID: ChrisZhang</p>
+        </div>
+
+        <div class="sheet-body">
+          <p class="file-no">FILE No. CZ-2026-001 &nbsp;/&nbsp; CLASSIFICATION: PUBLIC</p>
+          <dl class="rows">
+            <div><dt>NAME</dt><dd>Chris Zhang <span class="en">張家銘</span></dd></div>
+            <div><dt>EDUCATION</dt><dd>National Yunlin University of Science and Technology <span class="en">(YunTech)</span><br>Department of Information Management</dd></div>
+            <div><dt>PHONE</dt><dd><a href="tel:+886939666358" id="phone">0939-666-358</a></dd></div>
+            <div><dt>EMAIL</dt><dd><a href="mailto:chris@chriszhang.net">chris@chriszhang.net</a></dd></div>
+            <div><dt>HONORS</dt><dd>
+              <!-- 榮譽清單由 honor/honors.js 產生；新增榮譽改那個檔 -->
+              <ol class="honors" id="honorList"><li><span class="h-title">1st Place — Software Design</span><span class="h-meta">National Skills Competition</span></li></ol>
+              <button type="button" class="honor-more" id="honorMore" aria-expanded="false" aria-controls="honorList" hidden><span class="arr" aria-hidden="true">▸</span><span id="honorMoreTxt">MORE</span></button>
+            </dd></div>
+          </dl>
+
+          <h3 class="sheet-h">SPECIALTIES</h3>
+          <ul class="skills">
+            <li><b>C / C++ / C#</b><span>Primary languages — competitive programming &amp; OOP design</span></li>
+            <li><b>Algorithms &amp; Data Structures</b><span>Competitive programming, pathfinding, optimization</span></li>
+            <li><b>Python</b><span>Automation, data processing, local AI tools</span></li>
+            <li><b>AI / Machine Learning</b><span>EEG signal classification research, LLM applications</span></li>
+            <li><b>Web Development</b><span>Flask, HTML / CSS / JavaScript</span></li>
+          </ul>
+
+          <div class="links">
+            <a href="https://github.com/IAmPiHi" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/chris-zhang-1a1497381/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="http://zhangcode.ddns.net" target="_blank" rel="noopener">ZhangCode ↗</a>
+            <a href="mailto:chris@chriszhang.net">Email ↗</a>
+          </div>
+        </div>
+
+        <p class="remark">I love building practical tools from scratch — using math and algorithms to make things run better.</p>
+        <div class="stamp stamp-main" aria-hidden="true">NATIONAL<br>AWARDEE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 作品 ============ -->
+  <section id="works" class="sec reveal">
+    <h2 class="sec-h"><span>Selected Works</span><small>Case Files</small></h2>
+    <div class="works">
+
+      <a class="case" href="https://github.com/IAmPiHi/ZhangAI" target="_blank" rel="noopener">
+        <div class="case-tab">CASE No. 01</div>
+        <div class="case-img"><img src="img/works/zhangai.png" data-fallback="https://opengraph.githubassets.com/1/IAmPiHi/ZhangAI" data-label="SCREENSHOT" alt="ZhangAI screenshot" loading="lazy"></div>
+        <h3>ZhangAI</h3>
+        <p>A privacy-first local AI console built on llama.cpp and the Python standard library — vision, multi-model debate, local search and tool calling, with zero cloud dependency.</p>
+        <ul class="tech"><li>Python</li><li>llama.cpp</li><li>Local LLM</li></ul>
+        <span class="case-more">VIEW ON GITHUB →</span>
+      </a>
+
+      <a class="case" href="https://github.com/IAmPiHi/PacMan-OOP-" target="_blank" rel="noopener">
+        <div class="case-tab">CASE No. 02</div>
+        <div class="case-img"><img src="img/works/pacman.png" data-fallback="https://opengraph.githubassets.com/1/IAmPiHi/PacMan-OOP-" data-label="SCREENSHOT" alt="PacMan-OOP screenshot" loading="lazy"></div>
+        <h3>PacMan-OOP</h3>
+        <p>Pac-Man in C++ with ghosts that hunt you using A* pathfinding, a custom-built UI and a fully object-oriented architecture.</p>
+        <ul class="tech"><li>C++</li><li>A* Pathfinding</li><li>OOP</li></ul>
+        <span class="case-more">VIEW ON GITHUB →</span>
+      </a>
+
+      <a class="case" href="https://github.com/IAmPiHi/Better-cd" target="_blank" rel="noopener">
+        <div class="case-tab">CASE No. 03</div>
+        <div class="case-img"><img src="img/works/better-cd.png" data-fallback="https://opengraph.githubassets.com/1/IAmPiHi/Better-cd" data-label="SCREENSHOT" alt="Better-cd screenshot" loading="lazy"></div>
+        <h3>Better-cd</h3>
+        <p>A directory-navigation tool for Windows PowerShell that pairs a GUI folder picker with multi-workspace bookmarks for faster project switching.</p>
+        <ul class="tech"><li>PowerShell</li><li>CLI Tool</li></ul>
+        <span class="case-more">VIEW ON GITHUB →</span>
+      </a>
+
+      <a class="case" href="https://github.com/IAmPiHi/levelflask" target="_blank" rel="noopener">
+        <div class="case-tab">CASE No. 04</div>
+        <div class="case-img"><img src="img/works/levelflask.png" data-fallback="https://opengraph.githubassets.com/1/IAmPiHi/levelflask" data-label="SCREENSHOT" alt="levelflask screenshot" loading="lazy"></div>
+        <h3>levelflask</h3>
+        <p>A gamified productivity tool that turns your to-dos into experience points, so daily progress becomes visible.</p>
+        <ul class="tech"><li>Flask</li><li>Gamification</li></ul>
+        <span class="case-more">VIEW ON GITHUB →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ 評價：便利貼 ============ -->
+  <section id="reviews" class="sec reveal">
+    <h2 class="sec-h"><span>Testimonials</span><small>Notice Board</small></h2>
+    <div class="board" id="board">
+      <div class="pile-wrap">
+        <button class="pile" id="pile" aria-label="Draw the next testimonial note"></button>
+        <p class="pile-hint">Click the pile to draw a note ↗</p>
+      </div>
+      <div class="stage" id="stage" aria-live="polite"></div>
+      <div class="board-ctrl">
+        <button class="ctrl" id="prevNote" aria-label="Previous note">←</button>
+        <span class="count" id="noteCount">00 / 00</span>
+        <button class="ctrl" id="nextNote" aria-label="Next note">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 貼文 ============ -->
+  <section id="posts" class="sec reveal">
+    <h2 class="sec-h"><span>Dispatches</span><small>Latest Posts</small></h2>
+    <div class="posts" id="postList"></div>
+    <div class="more-wrap"><button class="more" id="morePosts" hidden>LOAD MORE</button></div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-end">— END OF FILE —</p>
+    <p class="foot-links">
+      <a href="mailto:chris@chriszhang.net">chris@chriszhang.net</a> ·
+      <a href="https://github.com/IAmPiHi" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/chris-zhang-1a1497381/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="http://zhangcode.ddns.net" target="_blank" rel="noopener">ZhangCode</a>
+    </p>
+    <p class="foot-copy">© <span id="year">2026</span> Chris Zhang</p>
+  </div>
+</footer>
+
+<!-- 資料檔：新增榮譽改 honor/honors.js；新增評價改 review/reviews.js；新增貼文改 post/posts.js -->
+<script src="honor/honors.js"></script>
+<script src="review/reviews.js"></script>
+<script src="post/posts.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
