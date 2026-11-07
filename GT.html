@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康有樹原型系統 - 登入指南與測試帳號</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                        },
+                        dark: {
+                            bg: '#0b0f17',
+                            card: '#131b2e',
+                            border: '#1f2d47',
+                            hover: '#1a263d'
+                        }
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(16, 185, 129, 0.4)' },
+                            '50%': { boxShadow: '0 0 30px rgba(16, 185, 129, 0.8)' },
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2.5s infinite ease-in-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f17;
+            color: #e2e8f0;
+        }
+        code, .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2d47;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #34d399;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-dark-bg text-slate-200 antialiased selection:bg-emerald-500 selection:text-white flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-dark-border bg-dark-bg/80 backdrop-blur sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-500/20">
+                    <i class="fa-solid fa-tree"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-white tracking-wide">Great Tree Demo</h1>
+                    <p class="text-xs text-slate-400">健康有樹原型系統導覽頁面</p>
+                </div>
+            </div>
+            <a href="https://greattreerender.onrender.com/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-emerald-400 bg-emerald-950/50 hover:bg-emerald-900/60 border border-emerald-700/50 rounded-lg transition-all">
+                <span>前往專案</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+        
+        <!-- Hero Section -->
+        <section class="text-center py-8 md:py-12 relative overflow-hidden rounded-3xl border border-dark-border bg-gradient-to-b from-dark-card to-dark-bg p-6 md:p-12 shadow-2xl">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-emerald-500/10 via-transparent to-transparent"></div>
+            
+            <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    原型測試專用通道 (Prototype Mode)
+                </span>
+                
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    健康有樹原型系統<br class="hidden sm:block"/>登入指南
+                </h1>
+                
+                <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
+                    以上為示範帳號，請用以下帳號登入觀看原型。<br/>
+                    您可以根據不同門市與職務身分（管理員、醫師、營養師、一般使用者）體驗權限劃分與完整功能。
+                </p>
+
+                <!-- Giant CTA Button -->
+                <div class="pt-6">
+                    <a href="https://greattreerender.onrender.com/" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="animate-pulse-glow inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-5 text-lg sm:text-xl font-bold text-white bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-500 hover:from-emerald-500 hover:to-teal-400 rounded-2xl shadow-xl shadow-emerald-600/30 transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0">
+                        <i class="fa-solid fa-rocket text-xl text-yellow-300"></i>
+                        <span>立即進入專案原型網站</span>
+                        <i class="fa-solid fa-chevron-right text-sm"></i>
+                    </a>
+                    <p class="mt-3 text-xs text-slate-400">
+                        點擊後將直接在新分頁開啟 Render 部署環境
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Render Free Tier Limitations Notice Cards -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-dark-border pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-white">Render 免費服務限制與注意事項</h2>
+                </div>
+                <span class="text-xs text-slate-400">請審閱以下連線特性說明</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Card 1: Cold Start -->
+                <div class="bg-dark-card border border-dark-border rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 transition-all duration-300 shadow-lg">
+                    <div class="space-y-4">
+                        <div class="flex items-start justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-700/60 flex items-center justify-center text-2xl text-slate-100 shadow-inner">
+                                ⬛
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 text-xs font-medium border border-amber-500/20">
+                                伺服器休眠喚醒
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                                黑色畫面 / 加載較慢 (冷啟動重啟)
+                            </h3>
+                            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                                若連線時出現黑色畫面、回應過久或連線較慢，代表 Render 免費伺服器正因一段時間無人存取而處於休眠喚醒中（Cold Start）。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-dark-border/60 flex items-center gap-2 text-xs text-amber-300 font-medium bg-amber-950/30 -mx-6 -mb-6 p-4">
+                        <i class="fa-solid fa-clock text-amber-400"></i>
+                        <span>提示：請耐心等待 <strong>2 至 3 分鐘</strong> 後重新重新整理頁面即可正常載入。</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Database Reset -->
+                <div class="bg-dark-card border border-dark-border rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group hover:border-emerald-500/40 transition-all duration-300 shadow-lg">
+                    <div class="space-y-4">
+                        <div class="flex items-start justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-950/60 border border-emerald-800/60 flex items-center justify-center text-2xl text-emerald-400 shadow-inner">
+                                🔄
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-medium border border-emerald-500/20">
+                                自動示範復原
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                                資料庫定期重置 (示範資料保留)
+                            </h3>
+                            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                                伺服器與資料庫一段時間後會自動重置。但請放心，下方列出的所有示範會員帳號均已預先設置好完整的測試資料，重置後仍可隨時直接登入觀看原型。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-dark-border/60 flex items-center gap-2 text-xs text-emerald-300 font-medium bg-emerald-950/30 -mx-6 -mb-6 p-4">
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                        <span>提示：示範帳號已完整預置，可直接複製下方密碼直接體驗。</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Table Section -->
+        <section class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-dark-border pb-4">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-users-viewfinder text-emerald-400"></i>
+                        示範帳號列表
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">
+                        點擊密碼或帳號即可快速複製，點擊登入入口可對應至特定頁面
+                    </p>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <div class="relative min-w-[220px]">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                        <input type="text" id="searchInput" placeholder="搜尋身份、門市或帳號..." 
+                               class="w-full bg-dark-bg border border-dark-border rounded-lg pl-9 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+                               onkeyup="filterTable()">
+                    </div>
+                    <div class="flex items-center gap-1 bg-dark-bg p-1 rounded-lg border border-dark-border text-xs">
+                        <button onclick="setStoreFilter('all')" class="store-filter-btn px-2.5 py-1 rounded-md text-emerald-400 bg-emerald-950/60 font-medium transition-all" data-store="all">全部門市</button>
+                        <button onclick="setStoreFilter('台北健康')" class="store-filter-btn px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition-all" data-store="台北健康">台北健康</button>
+                        <button onclick="setStoreFilter('台中安心')" class="store-filter-btn px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition-all" data-store="台中安心">台中安心</button>
+                        <button onclick="setStoreFilter('高雄幸福')" class="store-filter-btn px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition-all" data-store="高雄幸福">高雄幸福</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Wrapper matching the exact uploaded UI design style -->
+            <div class="rounded-xl border border-dark-border bg-dark-card overflow-hidden shadow-2xl">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse" id="accountTable">
+                        <thead>
+                            <tr class="border-b border-dark-border bg-slate-900/80 text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                                <th class="py-3.5 px-4">身份</th>
+                                <th class="py-3.5 px-4">門市</th>
+                                <th class="py-3.5 px-4">登入帳號</th>
+                                <th class="py-3.5 px-4">密碼</th>
+                                <th class="py-3.5 px-4">登入入口</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-dark-border text-sm" id="tableBody">
+                            <!-- Rows inserted dynamically for filterability & maintenance -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="noResults" class="hidden text-center py-8 text-slate-500 text-sm bg-dark-card rounded-xl border border-dark-border">
+                查無符合條件的示範帳號
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-dark-border bg-dark-bg py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+            <p>Great Tree Demo Prototype © 2026. All rights reserved.</p>
+            <p class="text-slate-600">此頁面為大樹專案原型系統測試引導說明頁，非正式對外公開運營網站。</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-4 py-3 bg-emerald-600 text-white rounded-xl shadow-xl font-medium text-sm">
+        <i class="fa-solid fa-circle-check text-white"></i>
+        <span id="toastMsg">已複製到剪貼簿！</span>
+    </div>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        // Exact 16 rows from user image
+        const accountsData = [
+            { role: "使用者 1", store: "台北健康", account: "user1@example.com", password: "GreatTreeDemo2026!", entry: "/auth/login", type: "user" },
+            { role: "使用者 2", store: "台中安心", account: "user2@example.com", password: "GreatTreeDemo2026!", entry: "/auth/login", type: "user" },
+            { role: "使用者 3", store: "高雄幸福", account: "user3@example.com", password: "GreatTreeDemo2026!", entry: "/auth/login", type: "user" },
+            { role: "網站 admin", store: "全站", account: "admin", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "admin" },
+            { role: "藥局管理員", store: "台北健康", account: "taipei_manager", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "工作人員", store: "台北健康", account: "taipei_staff", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "營養師", store: "台北健康", account: "taipei_nutritionist", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "合作醫師", store: "台北健康", account: "taipei_doctor", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "藥局管理員", store: "台中安心", account: "taichung_manager", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "工作人員", store: "台中安心", account: "taichung_staff", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "營養師", store: "台中安心", account: "taichung_nutritionist", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "合作醫師", store: "台中安心", account: "taichung_doctor", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "藥局管理員", store: "高雄幸福", account: "kaohsiung_manager", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "工作人員", store: "高雄幸福", account: "kaohsiung_staff", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "營養師", store: "高雄幸福", account: "kaohsiung_nutritionist", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" },
+            { role: "合作醫師", store: "高雄幸福", account: "kaohsiung_doctor", password: "GreatTreeDemo2026!", entry: "/admin/login", type: "staff" }
+        ];
+
+        let currentStoreFilter = 'all';
+
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            const noResults = document.getElementById('noResults');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            data.forEach((item) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-dark-hover transition-colors group";
+
+                // Badge styling for roles
+                let roleBadgeClass = "text-slate-300";
+                if (item.type === 'admin') roleBadgeClass = "text-amber-400 font-semibold";
+                else if (item.role.includes('使用者')) roleBadgeClass = "text-sky-300";
+                else roleBadgeClass = "text-emerald-300 font-medium";
+
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-medium ${roleBadgeClass}">
+                        ${item.role}
+                    </td>
+                    <td class="py-3 px-4 text-slate-300">
+                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-800 text-slate-300 border border-slate-700">
+                            ${item.store}
+                        </span>
+                    </td>
+                    <td class="py-3 px-4 font-mono text-xs">
+                        <div class="inline-flex items-center gap-2 bg-slate-900/90 px-2.5 py-1.5 rounded-lg border border-slate-700/60 hover:border-emerald-500/50 cursor-pointer group/code transition-all"
+                             onclick="copyText('${item.account}', '帳號')">
+                            <span class="text-slate-200 select-all">${item.account}</span>
+                            <i class="fa-regular fa-copy text-slate-500 group-hover/code:text-emerald-400 text-xs"></i>
+                        </div>
+                    </td>
+                    <td class="py-3 px-4 font-mono text-xs">
+                        <div class="inline-flex items-center gap-2 bg-slate-900/90 px-2.5 py-1.5 rounded-lg border border-slate-700/60 hover:border-emerald-500/50 cursor-pointer group/code transition-all"
+                             onclick="copyText('${item.password}', '密碼')">
+                            <span class="text-slate-200 select-all">${item.password}</span>
+                            <i class="fa-regular fa-copy text-slate-500 group-hover/code:text-emerald-400 text-xs"></i>
+                        </div>
+                    </td>
+                    <td class="py-3 px-4 font-mono text-xs">
+                        <a href="https://greattreerender.onrender.com${item.entry}" target="_blank" 
+                           class="inline-flex items-center gap-1.5 text-slate-400 hover:text-emerald-400 bg-slate-950 px-2.5 py-1 rounded border border-slate-800 hover:border-emerald-500/40 transition-all">
+                            <span>${item.entry}</span>
+                            <i class="fa-solid fa-arrow-right text-[10px] opacity-70"></i>
+                        </a>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function filterTable() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const filtered = accountsData.filter(item => {
+                const matchesStore = currentStoreFilter === 'all' || item.store === currentStoreFilter;
+                const matchesQuery = item.role.toLowerCase().includes(query) ||
+                                     item.store.toLowerCase().includes(query) ||
+                                     item.account.toLowerCase().includes(query) ||
+                                     item.entry.toLowerCase().includes(query);
+                return matchesStore && matchesQuery;
+            });
+            renderTable(filtered);
+        }
+
+        function setStoreFilter(store) {
+            currentStoreFilter = store;
+            document.querySelectorAll('.store-filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-store') === store) {
+                    btn.className = "store-filter-btn px-2.5 py-1 rounded-md text-emerald-400 bg-emerald-950/60 font-medium transition-all";
+                } else {
+                    btn.className = "store-filter-btn px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition-all";
+                }
+            });
+            filterTable();
+        }
+
+        function copyText(text, label) {
+            // Using textarea fallback compatible with all iframe contexts
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast(`已複製${label}：「${text}」`);
+            } catch (err) {
+                showToast(`複製失敗，請手動複製`);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        let toastTimer;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = msg;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // Initial render
+        window.onload = function() {
+            renderTable(accountsData);
+        };
+    </script>
+</body>
+</html>
